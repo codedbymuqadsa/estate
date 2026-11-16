@@ -1,0 +1,64 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.section {
+  @include section;
+}
+
+.grid {
+  display: grid;
+  gap: $space-3;
+  padding: 0;
+  grid-template-columns: repeat(2, 1fr);
+
+  @include up($bp-md) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: $space-4;
+  }
+  @include up($bp-xl) {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+.tile {
+  position: relative;
+  display: block;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border-radius: $radius-md;
+  color: #fff;
+  background: $color-navy;
+  @include focus-ring;
+}
+
+.image {
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+.tile:hover .image {
+  transform: scale(1.07);
+}
+
+.shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba($color-navy, 0.88) 0%, transparent 60%);
+}
+
+.label {
+  position: absolute;
+  left: $space-4;
+  right: $space-4;
+  bottom: $space-4;
+  display: grid;
+
+  strong {
+    font-family: $font-heading;
+    font-size: 1.125rem;
+    letter-spacing: -0.01em;
+  }
+  small {
+    color: $color-champagne;
+    font-size: 0.8125rem;
+  }
+}

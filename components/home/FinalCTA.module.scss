@@ -1,0 +1,45 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.section {
+  @include section;
+  padding-top: 0;
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  border-radius: $radius-lg;
+  background: $color-navy;
+  padding: $space-8 $space-5;
+
+  @include up($bp-md) {
+    padding: $space-9 $space-8;
+  }
+}
+
+.image {
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba($color-navy, 0.92) 0%, rgba($color-navy, 0.55) 70%, rgba($color-navy, 0.3) 100%);
+}
+
+.content {
+  position: relative;
+  max-width: 620px;
+  color: #fff;
+
+  h2 {
+    @include display(clamp(2rem, 4.6vw, 3.5rem));
+    color: #fff;
+  }
+  p {
+    margin-block: $space-4 $space-6;
+    font-size: 1.0625rem;
+    color: rgba(#fff, 0.82);
+  }
+}

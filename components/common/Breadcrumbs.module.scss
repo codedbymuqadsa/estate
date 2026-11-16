@@ -1,0 +1,43 @@
+@use 'variables' as *;
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  padding: 0;
+  list-style: none;
+  font-size: 0.8125rem;
+  color: $color-slate;
+}
+
+.item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  a {
+    transition: color $transition-base;
+    &:hover {
+      color: $color-blue;
+      text-decoration: underline;
+    }
+  }
+  [aria-current] {
+    color: $color-navy;
+    font-weight: 600;
+  }
+}
+
+.light {
+  .list,
+  .item [aria-current] {
+    color: rgba(#fff, 0.75);
+  }
+  .item [aria-current] {
+    color: #fff;
+  }
+  .item a:hover {
+    color: #fff;
+  }
+}

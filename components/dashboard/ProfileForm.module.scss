@@ -1,0 +1,24 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.form {
+  display: grid;
+  gap: $space-4;
+  max-width: 620px;
+  padding: $space-5;
+  background: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+
+  @include up($bp-md) {
+    padding: $space-6;
+  }
+}
+
+.row {
+  display: grid;
+  gap: $space-4;
+  @include up($bp-sm) {
+    grid-template-columns: 1fr 1fr;
+  }
+}

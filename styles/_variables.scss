@@ -1,0 +1,47 @@
+// ESTATE design tokens
+$color-navy: #143326;
+$color-navy-90: #1d4533;
+$color-blue: #2e8b57;
+$color-blue-dark: #236b43;
+$color-champagne: #e8d9b8;
+$color-champagne-dark: #cdb98e;
+$color-white: #faf9f6;
+$color-surface: #ffffff;
+$color-gray: #edf3ee;
+$color-border: #dbe5dd;
+$color-slate: #5f7066;
+$color-text: #1f2a24;
+$color-green: #3fa66a;
+$color-red: #c8473d;
+
+$font-heading: var(--font-heading), 'Manrope', system-ui, sans-serif;
+$font-body: var(--font-body), 'Inter', system-ui, sans-serif;
+
+$radius-sm: 8px;
+$radius-md: 14px;
+$radius-lg: 22px;
+$radius-pill: 999px;
+
+$shadow-sm: 0 1px 2px rgba(20, 51, 38, 0.06), 0 1px 3px rgba(20, 51, 38, 0.08);
+$shadow-md: 0 8px 24px rgba(20, 51, 38, 0.08);
+$shadow-lg: 0 24px 60px rgba(20, 51, 38, 0.16);
+
+$transition-base: 0.25s ease;
+
+$space-1: 4px;
+$space-2: 8px;
+$space-3: 12px;
+$space-4: 16px;
+$space-5: 24px;
+$space-6: 32px;
+$space-7: 48px;
+$space-8: 64px;
+$space-9: 96px;
+
+$container: 1280px;
+$header-height: 76px;
+
+$bp-sm: 600px;
+$bp-md: 820px;
+$bp-lg: 1100px;
+$bp-xl: 1440px;

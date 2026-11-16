@@ -1,0 +1,50 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: min(820px, calc(100vh - #{$header-height}));
+  min-height: min(820px, calc(100svh - #{$header-height}));
+  padding-block: $space-8;
+  color: #fff;
+  overflow: hidden;
+  background: $color-navy;
+}
+
+.image {
+  object-fit: cover;
+  object-position: center 60%;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg, rgba($color-navy, 0.88) 0%, rgba($color-navy, 0.6) 48%, rgba($color-navy, 0.15) 100%),
+    linear-gradient(0deg, rgba($color-navy, 0.55) 0%, transparent 40%);
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+}
+
+.eyebrow {
+  @include eyebrow;
+  color: $color-champagne;
+  margin-bottom: $space-4;
+}
+
+.title {
+  @include display(clamp(2.4rem, 6.2vw, 5rem));
+  color: #fff;
+  max-width: 14ch;
+}
+
+.text {
+  margin-block: $space-5 $space-6;
+  max-width: 48ch;
+  font-size: 1.125rem;
+  color: rgba(#fff, 0.86);
+}

@@ -1,0 +1,54 @@
+@use 'variables' as *;
+
+.form {
+  margin-top: $space-3;
+}
+
+.row {
+  display: flex;
+  background: rgba(#fff, 0.08);
+  border: 1px solid rgba(#fff, 0.18);
+  border-radius: $radius-pill;
+  padding: 4px;
+
+  &:focus-within {
+    border-color: $color-champagne;
+  }
+
+  input {
+    flex: 1;
+    min-width: 0;
+    padding: 10px 16px;
+    background: transparent;
+    border: 0;
+    color: #fff;
+    font-size: 0.875rem;
+
+    &::placeholder {
+      color: rgba(#fff, 0.5);
+    }
+    &:focus {
+      outline: none;
+    }
+  }
+
+  button {
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: $color-champagne;
+    color: $color-navy;
+    transition: transform $transition-base;
+    &:hover {
+      transform: translateX(2px);
+    }
+  }
+}
+
+.error {
+  margin-top: 6px;
+  font-size: 0.75rem;
+  color: #ffb4ab;
+}

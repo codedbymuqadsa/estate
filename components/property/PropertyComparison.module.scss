@@ -1,0 +1,193 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: $space-3;
+  margin-bottom: $space-3;
+}
+
+.barActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: $space-3;
+}
+
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+
+  input {
+    width: 18px;
+    height: 18px;
+    accent-color: $color-blue;
+  }
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px $space-3;
+  margin-bottom: $space-4;
+  font-size: 0.8125rem;
+  color: $color-slate;
+}
+
+.swatchDiff,
+.swatchBest {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 4px;
+}
+.swatchDiff {
+  background: rgba($color-champagne, 0.55);
+  border: 1px solid $color-champagne-dark;
+}
+.swatchBest {
+  background: rgba($color-green, 0.18);
+  border: 1px solid $color-green;
+  margin-left: $space-3;
+}
+
+.scroller {
+  overflow-x: auto;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+  background: $color-surface;
+  -webkit-overflow-scrolling: touch;
+}
+
+.table {
+  width: 100%;
+  min-width: 720px;
+  border-collapse: separate;
+  border-spacing: 0;
+  table-layout: fixed;
+
+  th,
+  td {
+    padding: 14px 16px;
+    text-align: left;
+    vertical-align: top;
+    border-bottom: 1px solid $color-border;
+    font-size: 0.9375rem;
+  }
+  tbody tr:last-child > * {
+    border-bottom: 0;
+  }
+  td + td,
+  th + th {
+    border-left: 1px solid $color-border;
+  }
+}
+
+.corner,
+.label {
+  position: sticky;
+  left: 0;
+  z-index: 2;
+  width: 130px;
+  background: $color-surface;
+  font-size: 0.75rem !important;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: $color-slate;
+  font-weight: 700;
+
+  @include up($bp-md) {
+    width: 170px;
+  }
+}
+
+.head {
+  padding: $space-4 !important;
+  font-weight: 400;
+}
+
+.headCard {
+  position: relative;
+  display: grid;
+  gap: $space-3;
+}
+
+.thumb {
+  position: relative;
+  display: block;
+  aspect-ratio: 4 / 3;
+  border-radius: $radius-md;
+  overflow: hidden;
+  background: $color-gray;
+
+  img {
+    object-fit: cover;
+  }
+}
+
+.name {
+  font-family: $font-heading;
+  font-weight: 800;
+  font-size: 1.0625rem;
+  color: $color-navy;
+  &:hover {
+    color: $color-blue;
+  }
+}
+
+.remove {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 3;
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(#fff, 0.95);
+  box-shadow: $shadow-sm;
+  &:hover {
+    background: $color-navy;
+    color: #fff;
+  }
+}
+
+.diff > td,
+.diff > .label {
+  background: rgba($color-champagne, 0.3);
+}
+
+.best {
+  background: rgba($color-green, 0.14) !important;
+  font-weight: 700;
+  color: #1c6b4b;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 0;
+
+  li {
+    padding: 3px 10px;
+    border-radius: $radius-pill;
+    background: $color-gray;
+    font-size: 0.8125rem;
+    font-weight: 500;
+  }
+  .unique {
+    background: rgba($color-blue, 0.12);
+    color: $color-blue-dark;
+    font-weight: 600;
+  }
+}

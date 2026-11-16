@@ -1,0 +1,63 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: $space-4;
+  margin-bottom: $space-6;
+}
+
+.center {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  .text {
+    margin-inline: auto;
+  }
+}
+
+.eyebrow {
+  @include eyebrow;
+  margin-bottom: $space-2;
+}
+
+.title {
+  @include display(clamp(1.75rem, 3.8vw, 2.75rem));
+  max-width: 20ch;
+}
+.center .title {
+  max-width: 24ch;
+}
+
+.text {
+  margin-top: $space-3;
+  max-width: 52ch;
+  color: $color-slate;
+  font-size: 1.0625rem;
+}
+
+.link {
+  font-weight: 700;
+  color: $color-blue;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.light {
+  .eyebrow {
+    color: $color-champagne;
+  }
+  .title {
+    color: #fff;
+  }
+  .text {
+    color: rgba(#fff, 0.78);
+  }
+  .link {
+    color: $color-champagne;
+  }
+}

@@ -1,0 +1,77 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.filters {
+  display: grid;
+  gap: $space-3;
+  grid-template-columns: 1fr;
+
+  @include up($bp-sm) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @include up($bp-lg) {
+    grid-template-columns: 2fr repeat(4, 1fr);
+  }
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-inline: 14px;
+  background: #fff;
+  border: 1.5px solid $color-border;
+  border-radius: $radius-sm;
+
+  @include up($bp-sm) {
+    grid-column: 1 / -1;
+  }
+  @include up($bp-lg) {
+    grid-column: auto;
+  }
+
+  &:focus-within {
+    border-color: $color-blue;
+    box-shadow: 0 0 0 3px rgba($color-blue, 0.18);
+  }
+  svg {
+    color: $color-slate;
+    flex-shrink: 0;
+  }
+  input {
+    flex: 1;
+    min-width: 0;
+    padding: 12px 0;
+    border: 0;
+    background: transparent;
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.count {
+  margin-block: $space-5;
+  color: $color-slate;
+}
+
+.grid {
+  display: grid;
+  gap: $space-5;
+  padding: 0;
+  grid-template-columns: 1fr;
+
+  @include up($bp-sm) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @include up($bp-lg) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @include up($bp-xl) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  > li {
+    min-width: 0;
+  }
+}

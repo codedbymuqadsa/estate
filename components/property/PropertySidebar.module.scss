@@ -1,0 +1,29 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.sidebar {
+  display: grid;
+  gap: $space-4;
+  align-content: start;
+
+  @include up($bp-lg) {
+    position: sticky;
+    top: calc(#{$header-height} + 16px);
+  }
+}
+
+.card {
+  padding: $space-5;
+  background: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-sm;
+  scroll-margin-top: calc(#{$header-height} + 16px);
+}
+
+.hint {
+  margin-top: $space-3;
+  font-size: 0.75rem;
+  color: $color-slate;
+  text-align: center;
+}

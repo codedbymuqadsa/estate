@@ -1,0 +1,120 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.section {
+  @include section;
+  overflow-x: clip;
+}
+
+.head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: $space-4;
+
+  > div:first-child {
+    flex: 1;
+  }
+}
+
+.nav {
+  display: none;
+  gap: $space-2;
+  margin-bottom: $space-6;
+
+  @include up($bp-md) {
+    display: flex;
+  }
+
+  button {
+    width: 48px;
+    height: 48px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    border: 1.5px solid $color-border;
+    color: $color-navy;
+    transition: background $transition-base, color $transition-base;
+    @include focus-ring;
+
+    &:hover:not(:disabled) {
+      background: $color-navy;
+      color: #fff;
+    }
+    &:disabled {
+      opacity: 0.35;
+      cursor: default;
+    }
+  }
+}
+
+.swiper {
+  overflow: visible !important;
+  @include up($bp-xl) {
+    overflow: hidden !important;
+  }
+}
+
+.slide {
+  height: auto !important;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: $space-5;
+  background: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+
+  blockquote {
+    flex: 1;
+    margin: $space-3 0 $space-5;
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    color: $color-navy;
+  }
+
+  figcaption {
+    display: flex;
+    align-items: center;
+    gap: $space-3;
+
+    strong {
+      display: block;
+      font-size: 0.9375rem;
+    }
+    small {
+      color: $color-slate;
+    }
+  }
+}
+
+.quote {
+  color: $color-champagne-dark;
+}
+
+.avatar {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  overflow: hidden;
+  background: $color-gray;
+
+  img {
+    object-fit: cover;
+  }
+}
+
+.initials {
+  display: grid;
+  place-items: center;
+  background: $color-navy;
+  color: $color-champagne;
+  font-family: $font-heading;
+  font-weight: 800;
+  font-size: 0.875rem;
+}

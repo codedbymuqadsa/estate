@@ -1,0 +1,99 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.demo {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin-top: $space-5;
+  padding: 12px 16px;
+  background: rgba($color-champagne, 0.45);
+  border-radius: $radius-md;
+  font-size: 0.875rem;
+  color: $color-navy;
+
+  svg {
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+}
+
+.layout {
+  display: grid;
+  gap: $space-5;
+  padding-block: $space-5 $space-7;
+  grid-template-columns: minmax(0, 1fr);
+
+  @include up($bp-lg) {
+    grid-template-columns: 260px minmax(0, 1fr);
+    gap: $space-6;
+    align-items: start;
+  }
+}
+
+.sidebar {
+  @include up($bp-lg) {
+    position: sticky;
+    top: calc(#{$header-height} + 16px);
+    padding: $space-4;
+    background: $color-surface;
+    border: 1px solid $color-border;
+    border-radius: $radius-lg;
+  }
+
+  ul {
+    display: flex;
+    gap: $space-2;
+    padding: 0;
+    overflow-x: auto;
+    @include hide-scrollbar;
+
+    @include up($bp-lg) {
+      flex-direction: column;
+      gap: 4px;
+      overflow: visible;
+    }
+  }
+}
+
+.title {
+  display: none;
+  padding: 4px 12px 12px;
+  @include eyebrow;
+  @include up($bp-lg) {
+    display: block;
+  }
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  border-radius: $radius-pill;
+  white-space: nowrap;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  color: $color-slate;
+  background: $color-gray;
+  transition: background $transition-base, color $transition-base;
+  @include focus-ring;
+
+  @include up($bp-lg) {
+    border-radius: $radius-md;
+    background: transparent;
+  }
+
+  &:hover {
+    color: $color-navy;
+  }
+}
+
+.active {
+  background: $color-navy !important;
+  color: #fff !important;
+}
+
+.content {
+  min-width: 0;
+}

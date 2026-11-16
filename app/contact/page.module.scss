@@ -1,0 +1,109 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.layout {
+  display: grid;
+  gap: $space-6;
+  padding-block: $space-5 $space-7;
+  grid-template-columns: minmax(0, 1fr);
+
+  @include up($bp-lg) {
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+    gap: $space-7;
+    align-items: start;
+  }
+}
+
+.formCard {
+  padding: $space-5;
+  background: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-sm;
+
+  @include up($bp-md) {
+    padding: $space-6;
+  }
+}
+
+.h {
+  margin-bottom: $space-5;
+  font-size: 1.5rem;
+}
+
+.details {
+  display: grid;
+  gap: $space-5;
+  padding: 0;
+
+  li {
+    display: flex;
+    gap: $space-4;
+    align-items: flex-start;
+  }
+  h3 {
+    font-size: 0.8125rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: $color-slate;
+    margin-bottom: 2px;
+  }
+  a,
+  p {
+    font-weight: 500;
+  }
+  a:hover {
+    color: $color-blue;
+    text-decoration: underline;
+  }
+}
+
+.icon {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: $color-champagne;
+  color: $color-navy;
+}
+
+.social {
+  margin-top: $space-6;
+  padding-top: $space-5;
+  border-top: 1px solid $color-border;
+
+  h3 {
+    font-size: 0.8125rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: $color-slate;
+    margin-bottom: $space-3;
+  }
+  ul {
+    display: flex;
+    gap: $space-2;
+    padding: 0;
+  }
+  a {
+    width: 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    border: 1.5px solid $color-border;
+    transition: background $transition-base, color $transition-base, border-color $transition-base;
+    &:hover {
+      background: $color-navy;
+      border-color: $color-navy;
+      color: #fff;
+    }
+  }
+}
+
+.note {
+  margin-top: $space-5;
+  font-size: 0.8125rem;
+  color: $color-slate;
+}

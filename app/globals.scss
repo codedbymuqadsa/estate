@@ -1,0 +1,26 @@
+@use '../styles/variables' as *;
+@use '../styles/reset';
+@use '../styles/typography';
+@use '../styles/utilities';
+
+:root {
+  --color-navy: #{$color-navy};
+  --color-blue: #{$color-blue};
+  --color-champagne: #{$color-champagne};
+  --color-green: #{$color-green};
+  --header-height: #{$header-height};
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+body.no-scroll {
+  overflow: hidden;
+}

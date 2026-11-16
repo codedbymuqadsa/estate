@@ -1,0 +1,110 @@
+@use 'variables' as *;
+
+.map {
+  width: 100%;
+  height: 100%;
+  min-height: 280px;
+  z-index: 0;
+  font-family: $font-body;
+  background: $color-gray;
+}
+
+.pinWrap {
+  background: none;
+  border: 0;
+}
+
+.pin {
+  position: absolute;
+  transform: translate(-50%, -100%);
+  padding: 6px 11px;
+  border-radius: $radius-pill;
+  background: $color-navy;
+  color: #fff;
+  font-family: $font-heading;
+  font-size: 0.75rem;
+  font-weight: 800;
+  white-space: nowrap;
+  border: 2px solid #fff;
+  box-shadow: 0 4px 12px rgba($color-navy, 0.35);
+  transition: background 0.2s, transform 0.2s;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -7px;
+    width: 10px;
+    height: 10px;
+    background: inherit;
+    border-right: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+    transform: translateX(-50%) rotate(45deg);
+  }
+
+  &:hover {
+    background: $color-blue;
+  }
+}
+
+.pinActive {
+  background: $color-blue;
+  transform: translate(-50%, -100%) scale(1.12);
+}
+
+.popup :global(.leaflet-popup-content-wrapper) {
+  padding: 0;
+  overflow: hidden;
+  border-radius: $radius-md;
+}
+.popup :global(.leaflet-popup-content) {
+  margin: 0;
+  width: 240px !important;
+}
+
+.card {
+  display: block;
+}
+
+.thumb {
+  position: relative;
+  height: 130px;
+
+  img {
+    object-fit: cover;
+  }
+}
+
+.info {
+  padding: 12px 14px 14px;
+}
+
+.price {
+  margin: 0 0 2px !important;
+  font-family: $font-heading;
+  font-weight: 800;
+  font-size: 1.125rem;
+  color: $color-navy;
+}
+
+.title {
+  margin: 0 !important;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  color: $color-text;
+}
+
+.where {
+  margin: 2px 0 8px !important;
+  font-size: 0.8125rem;
+  color: $color-slate;
+}
+
+.link {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: $color-blue !important;
+  &:hover {
+    text-decoration: underline;
+  }
+}

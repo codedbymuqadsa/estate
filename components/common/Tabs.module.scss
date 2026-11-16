@@ -1,0 +1,83 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.list {
+  display: inline-flex;
+  gap: 4px;
+  max-width: 100%;
+  overflow-x: auto;
+  @include hide-scrollbar;
+}
+
+.tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 20px;
+  border-radius: $radius-pill;
+  font-family: $font-heading;
+  font-weight: 700;
+  font-size: 0.875rem;
+  white-space: nowrap;
+  color: $color-slate;
+  transition: background $transition-base, color $transition-base;
+  @include focus-ring;
+}
+
+.count {
+  padding: 1px 8px;
+  border-radius: $radius-pill;
+  background: rgba($color-navy, 0.08);
+  font-size: 0.75rem;
+}
+
+.pill {
+  padding: 5px;
+  background: $color-gray;
+  border-radius: $radius-pill;
+
+  .tab:hover:not(.active) {
+    color: $color-navy;
+  }
+  .active {
+    background: #fff;
+    color: $color-navy;
+    box-shadow: $shadow-sm;
+  }
+}
+
+// Used on top of photography (hero search)
+.glass {
+  padding: 5px;
+  background: rgba($color-navy, 0.5);
+  backdrop-filter: blur(10px);
+  border-radius: $radius-pill;
+
+  .tab {
+    color: rgba(#fff, 0.8);
+    &:hover:not(.active) {
+      color: #fff;
+    }
+  }
+  .active {
+    background: #fff;
+    color: $color-navy;
+  }
+}
+
+.underline {
+  gap: $space-5;
+  border-bottom: 1px solid $color-border;
+  width: 100%;
+
+  .tab {
+    padding: 12px 2px;
+    border-radius: 0;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+  }
+  .active {
+    color: $color-navy;
+    border-bottom-color: $color-blue;
+  }
+}

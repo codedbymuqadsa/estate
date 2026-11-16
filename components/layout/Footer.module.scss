@@ -1,0 +1,123 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.footer {
+  margin-top: $space-9;
+  padding-top: $space-8;
+  background: $color-navy;
+  color: rgba(#fff, 0.78);
+  font-size: 0.9375rem;
+}
+
+.grid {
+  display: grid;
+  gap: $space-6;
+  grid-template-columns: 1fr;
+
+  @include up($bp-sm) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @include up($bp-lg) {
+    grid-template-columns: 1.4fr 1fr 1fr 1.3fr 1.4fr;
+    gap: $space-5;
+  }
+}
+
+.logo {
+  font-family: $font-heading;
+  font-weight: 800;
+  font-size: 1.6rem;
+  letter-spacing: 0.22em;
+  color: #fff;
+}
+
+.tagline {
+  margin-top: $space-2;
+  color: $color-champagne;
+  font-family: $font-heading;
+  font-weight: 600;
+}
+
+.small {
+  margin-top: $space-3;
+  font-size: 0.8125rem;
+  color: rgba(#fff, 0.6);
+  max-width: 34ch;
+}
+
+.socials {
+  display: flex;
+  gap: $space-2;
+  padding: 0;
+  margin-top: $space-4;
+
+  a {
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    border: 1px solid rgba(#fff, 0.2);
+    transition: background $transition-base, color $transition-base;
+    &:hover {
+      background: $color-champagne;
+      color: $color-navy;
+    }
+  }
+}
+
+.heading {
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: $space-4;
+  font-family: $font-body;
+  font-weight: 700;
+}
+
+.col ul {
+  display: grid;
+  gap: 10px;
+  padding: 0;
+}
+
+.col a {
+  transition: color $transition-base;
+  &:hover {
+    color: $color-champagne;
+  }
+}
+
+.contact li {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  svg {
+    flex-shrink: 0;
+    margin-top: 4px;
+    color: $color-champagne;
+  }
+}
+
+.bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: $space-3;
+  margin-top: $space-8;
+  padding-block: $space-5;
+  border-top: 1px solid rgba(#fff, 0.12);
+  font-size: 0.8125rem;
+  color: rgba(#fff, 0.55);
+}
+
+.legal {
+  display: flex;
+  gap: $space-4;
+  padding: 0;
+
+  a:hover {
+    color: #fff;
+  }
+}

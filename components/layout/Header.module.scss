@@ -1,0 +1,174 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: $header-height;
+  background: rgba($color-white, 0.88);
+  backdrop-filter: saturate(180%) blur(14px);
+  border-bottom: 1px solid rgba($color-border, 0.8);
+}
+
+.inner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: $space-5;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: $font-heading;
+  font-weight: 800;
+  font-size: 1.35rem;
+  letter-spacing: 0.22em;
+  color: $color-navy;
+  margin-right: auto;
+  @include focus-ring;
+
+  @include up($bp-lg) {
+    margin-right: 0;
+  }
+}
+
+.logoMark {
+  width: 22px;
+  height: 22px;
+  background: $color-navy;
+  border-radius: 6px 6px 6px 0;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 6px;
+    background: $color-champagne;
+    border-radius: 2px;
+  }
+}
+
+.nav {
+  display: none;
+
+  @include up($bp-lg) {
+    display: flex;
+    gap: $space-1;
+    margin-inline: auto;
+  }
+}
+
+.link {
+  position: relative;
+  padding: 8px 14px;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: $color-text;
+  border-radius: $radius-pill;
+  transition: color $transition-base, background $transition-base;
+  @include focus-ring;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 14px;
+    right: 14px;
+    bottom: 2px;
+    height: 2px;
+    background: $color-blue;
+    transform: scaleX(0);
+    transition: transform $transition-base;
+  }
+  &:hover {
+    color: $color-blue;
+  }
+}
+
+.active {
+  color: $color-navy;
+  font-weight: 700;
+  &::after {
+    transform: scaleX(1);
+  }
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+}
+
+.iconLink {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  color: $color-navy;
+  transition: background $transition-base;
+  @include focus-ring;
+
+  &:hover {
+    background: $color-gray;
+  }
+}
+
+.iconActive {
+  background: $color-gray;
+}
+
+.count {
+  position: absolute;
+  top: 2px;
+  right: 0;
+  min-width: 18px;
+  height: 18px;
+  padding-inline: 5px;
+  display: grid;
+  place-items: center;
+  border-radius: $radius-pill;
+  background: $color-blue;
+  color: #fff;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.dashboard {
+  display: none;
+  padding: 8px 12px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: $color-slate;
+  &:hover {
+    color: $color-navy;
+  }
+  @include up($bp-xl) {
+    display: inline-block;
+  }
+}
+
+.cta {
+  display: none !important;
+  @include up($bp-md) {
+    display: inline-flex !important;
+    margin-left: $space-2;
+  }
+}
+
+.burger {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  color: $color-navy;
+  @include focus-ring;
+  @include up($bp-lg) {
+    display: none;
+  }
+}

@@ -1,0 +1,97 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 0;
+  background: rgba($color-navy, 0.55);
+  backdrop-filter: blur(3px);
+  animation: fade 0.2s ease;
+
+  @include up($bp-sm) {
+    align-items: center;
+    padding: $space-5;
+  }
+}
+
+.panel {
+  width: 100%;
+  max-height: 92vh;
+  display: flex;
+  flex-direction: column;
+  background: $color-surface;
+  border-radius: $radius-lg $radius-lg 0 0;
+  box-shadow: $shadow-lg;
+  animation: rise 0.28s ease;
+  outline: none;
+
+  @include up($bp-sm) {
+    border-radius: $radius-lg;
+  }
+}
+
+.sm {
+  max-width: 440px;
+}
+.md {
+  max-width: 600px;
+}
+.lg {
+  max-width: 860px;
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: $space-4;
+  padding: $space-5 $space-5 0;
+}
+
+.title {
+  font-size: 1.25rem;
+}
+
+.close {
+  margin-left: auto;
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: $color-slate;
+  transition: background $transition-base;
+  &:hover {
+    background: $color-gray;
+  }
+}
+
+.body {
+  padding: $space-4 $space-5 $space-5;
+  overflow-y: auto;
+}
+
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: $space-3;
+  padding: $space-4 $space-5;
+  border-top: 1px solid $color-border;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes rise {
+  from {
+    transform: translateY(24px);
+    opacity: 0;
+  }
+}

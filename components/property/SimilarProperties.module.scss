@@ -1,0 +1,17 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.section {
+  @include section;
+  margin-top: $space-7;
+  background: $color-gray;
+}
+
+.title {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+.sub {
+  margin: $space-2 0 $space-6;
+  color: $color-slate;
+}

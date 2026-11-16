@@ -1,0 +1,73 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: $space-3;
+  margin-bottom: $space-5;
+}
+
+.tools {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+
+  select {
+    padding-block: 9px;
+    font-size: 0.875rem;
+  }
+}
+
+.grid {
+  display: grid;
+  gap: $space-5;
+  padding: 0;
+  grid-template-columns: 1fr;
+
+  @include up($bp-sm) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @include up($bp-lg) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.compact {
+  @include up($bp-lg) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @include up($bp-xl) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.cell {
+  display: grid;
+  gap: $space-3;
+  align-content: start;
+  min-width: 0;
+}
+
+.rowActions {
+  display: flex;
+  gap: $space-2;
+}
+
+.cta {
+  margin-top: $space-6;
+  padding: $space-4;
+  text-align: center;
+  border-radius: $radius-md;
+  background: $color-gray;
+
+  a {
+    font-weight: 700;
+    color: $color-blue;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

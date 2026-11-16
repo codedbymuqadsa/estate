@@ -1,0 +1,22 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.crumbs {
+  padding-top: $space-5;
+}
+
+.layout {
+  display: grid;
+  gap: $space-6;
+  grid-template-columns: minmax(0, 1fr);
+
+  @include up($bp-lg) {
+    grid-template-columns: minmax(0, 1fr) 380px;
+    gap: $space-7;
+    align-items: start;
+  }
+}
+
+.content {
+  min-width: 0;
+}

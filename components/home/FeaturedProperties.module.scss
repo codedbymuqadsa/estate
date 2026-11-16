@@ -1,0 +1,7 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.section {
+  @include section;
+  background: $color-gray;
+}

@@ -1,0 +1,65 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: $color-navy;
+}
+
+.req {
+  color: $color-red;
+}
+
+.control {
+  width: 100%;
+  padding: 12px 14px;
+  background: #fff;
+  border: 1.5px solid $color-border;
+  border-radius: $radius-sm;
+  color: $color-text;
+  font-size: 0.9375rem;
+  transition: border-color $transition-base, box-shadow $transition-base;
+
+  &::placeholder {
+    color: #98a2b3;
+  }
+  &:hover {
+    border-color: #c4ccd8;
+  }
+  &:focus {
+    outline: none;
+    border-color: $color-blue;
+    box-shadow: 0 0 0 3px rgba($color-blue, 0.18);
+  }
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+
+.hint {
+  font-size: 0.75rem;
+  color: $color-slate;
+}
+
+.error {
+  font-size: 0.75rem;
+  color: $color-red;
+  font-weight: 500;
+}
+
+.invalid .control {
+  border-color: $color-red;
+  &:focus {
+    box-shadow: 0 0 0 3px rgba($color-red, 0.18);
+  }
+}

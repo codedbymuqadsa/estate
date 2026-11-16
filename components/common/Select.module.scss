@@ -1,0 +1,54 @@
+@use 'variables' as *;
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: $color-navy;
+}
+
+.wrap {
+  position: relative;
+}
+
+.select {
+  width: 100%;
+  appearance: none;
+  padding: 12px 38px 12px 14px;
+  background: #fff;
+  border: 1.5px solid $color-border;
+  border-radius: $radius-sm;
+  font-size: 0.9375rem;
+  color: $color-text;
+  cursor: pointer;
+  transition: border-color $transition-base, box-shadow $transition-base;
+
+  &:hover {
+    border-color: #c4ccd8;
+  }
+  &:focus {
+    outline: none;
+    border-color: $color-blue;
+    box-shadow: 0 0 0 3px rgba($color-blue, 0.18);
+  }
+}
+
+.chevron {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: $color-slate;
+}
+
+.error {
+  font-size: 0.75rem;
+  color: $color-red;
+}

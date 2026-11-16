@@ -1,0 +1,72 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.viewport {
+  position: fixed;
+  z-index: 400;
+  left: $space-4;
+  right: $space-4;
+  bottom: $space-4;
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+  pointer-events: none;
+
+  @include up($bp-sm) {
+    left: auto;
+    right: $space-5;
+    bottom: $space-5;
+    width: 380px;
+  }
+}
+
+.toast {
+  pointer-events: auto;
+  display: flex;
+  align-items: flex-start;
+  gap: $space-3;
+  padding: 14px 16px;
+  background: $color-navy;
+  color: #fff;
+  border-radius: $radius-md;
+  box-shadow: $shadow-lg;
+  font-size: 0.875rem;
+  line-height: 1.45;
+  animation: slide 0.3s ease;
+
+  p {
+    flex: 1;
+  }
+}
+
+.icon {
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.success .icon {
+  color: #5fd4a5;
+}
+.error {
+  background: #7a2a24;
+}
+.error .icon {
+  color: #ffb4ab;
+}
+.info .icon {
+  color: $color-champagne;
+}
+
+.close {
+  color: rgba(#fff, 0.6);
+  border-radius: 4px;
+  &:hover {
+    color: #fff;
+  }
+}
+
+@keyframes slide {
+  from {
+    transform: translateY(12px);
+    opacity: 0;
+  }
+}

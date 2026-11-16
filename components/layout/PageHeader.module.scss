@@ -1,0 +1,37 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.header {
+  padding-block: $space-6 $space-6;
+  background: linear-gradient(180deg, $color-gray 0%, $color-white 100%);
+
+  @include up($bp-md) {
+    padding-block: $space-7 $space-6;
+  }
+}
+
+.eyebrow {
+  @include eyebrow;
+  margin-top: $space-5;
+}
+
+.title {
+  @include display;
+  margin-top: $space-3;
+  max-width: 18ch;
+}
+
+.header nav + .title {
+  margin-top: $space-5;
+}
+
+.subtitle {
+  margin-top: $space-4;
+  max-width: 56ch;
+  font-size: 1.0625rem;
+  color: $color-slate;
+}
+
+.extra {
+  margin-top: $space-5;
+}

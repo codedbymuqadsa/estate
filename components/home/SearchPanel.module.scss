@@ -1,0 +1,39 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.panel {
+  display: grid;
+  gap: $space-3;
+  justify-items: start;
+  max-width: 980px;
+}
+
+.form {
+  width: 100%;
+  display: grid;
+  gap: $space-3;
+  padding: $space-4;
+  background: rgba(#fff, 0.97);
+  border-radius: $radius-lg;
+  box-shadow: $shadow-lg;
+  grid-template-columns: 1fr;
+
+  @include up($bp-md) {
+    grid-template-columns: repeat(3, 1fr);
+    padding: $space-5;
+  }
+  @include up($bp-lg) {
+    grid-template-columns: 1.2fr 1fr 1fr auto;
+    align-items: end;
+  }
+}
+
+.submit {
+  @include up($bp-md) {
+    grid-column: 1 / -1;
+  }
+  @include up($bp-lg) {
+    grid-column: auto;
+    height: 49px;
+  }
+}

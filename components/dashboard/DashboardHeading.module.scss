@@ -1,0 +1,19 @@
+@use 'variables' as *;
+
+.wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: $space-3;
+  margin-bottom: $space-5;
+}
+
+.title {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+.text {
+  margin-top: 4px;
+  color: $color-slate;
+}

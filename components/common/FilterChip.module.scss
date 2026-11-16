@@ -1,0 +1,25 @@
+@use 'variables' as *;
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 6px 6px 14px;
+  background: rgba($color-blue, 0.1);
+  color: $color-blue-dark;
+  border-radius: $radius-pill;
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+.remove {
+  width: 22px;
+  height: 22px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  transition: background $transition-base;
+  &:hover {
+    background: rgba($color-blue, 0.2);
+  }
+}

@@ -1,0 +1,247 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.layout {
+  display: grid;
+  gap: $space-6;
+  padding-block: $space-5 $space-8;
+  grid-template-columns: minmax(0, 1fr);
+
+  @include up($bp-lg) {
+    grid-template-columns: 300px minmax(0, 1fr);
+    align-items: start;
+  }
+}
+
+// ----- Sidebar (desktop) / drawer (mobile) -----
+.drawer {
+  @include down($bp-lg) {
+    position: fixed;
+    inset: 0;
+    z-index: 260;
+    visibility: hidden;
+    transition: visibility 0s linear 0.3s;
+  }
+  @include up($bp-lg) {
+    position: sticky;
+    top: calc(#{$header-height} + 16px);
+    max-height: calc(100vh - #{$header-height} - 32px);
+    display: flex;
+  }
+}
+
+.drawerOpen {
+  @include down($bp-lg) {
+    visibility: visible;
+    transition-delay: 0s;
+  }
+}
+
+.backdrop {
+  @include up($bp-lg) {
+    display: none;
+  }
+  position: absolute;
+  inset: 0;
+  background: rgba($color-navy, 0.55);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.drawerOpen .backdrop {
+  opacity: 1;
+}
+
+.sidebar {
+  background: $color-surface;
+  padding: $space-5;
+
+  @include down($bp-lg) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: min(400px, 92vw);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    box-shadow: $shadow-lg;
+  }
+  @include up($bp-lg) {
+    width: 100%;
+    border: 1px solid $color-border;
+    border-radius: $radius-md;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+  }
+}
+.drawerOpen .sidebar {
+  transform: translateX(0);
+}
+
+// Close button inside filters is only for the drawer
+.sidebar :global(button[aria-label='Close filters']) {
+  @include up($bp-lg) {
+    display: none;
+  }
+}
+
+// ----- Results -----
+.results {
+  min-width: 0;
+  scroll-margin-top: calc(#{$header-height} + 16px);
+}
+
+.topbar {
+  display: flex;
+  gap: $space-3;
+}
+
+.search {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-inline: 16px;
+  background: #fff;
+  border: 1.5px solid $color-border;
+  border-radius: $radius-pill;
+  transition: border-color $transition-base, box-shadow $transition-base;
+
+  &:focus-within {
+    border-color: $color-blue;
+    box-shadow: 0 0 0 3px rgba($color-blue, 0.18);
+  }
+  svg {
+    color: $color-slate;
+    flex-shrink: 0;
+  }
+  input {
+    flex: 1;
+    min-width: 0;
+    padding: 13px 0;
+    border: 0;
+    background: transparent;
+    font-size: 0.9375rem;
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.filterBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 20px;
+  border-radius: $radius-pill;
+  background: $color-navy;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.875rem;
+  @include focus-ring;
+
+  @include up($bp-lg) {
+    display: none;
+  }
+}
+
+.badge {
+  min-width: 20px;
+  height: 20px;
+  padding-inline: 6px;
+  display: grid;
+  place-items: center;
+  border-radius: $radius-pill;
+  background: $color-champagne;
+  color: $color-navy;
+  font-size: 0.75rem;
+}
+
+.tabsRow {
+  margin-top: $space-4;
+  max-width: 100%;
+  overflow-x: auto;
+  @include hide-scrollbar;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: $space-4;
+}
+
+.clear {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 10px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: $color-slate;
+  border-radius: $radius-pill;
+  &:hover {
+    color: $color-navy;
+    background: $color-gray;
+  }
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: $space-3;
+  margin-block: $space-5;
+}
+
+.count {
+  color: $color-slate;
+  font-size: 0.9375rem;
+  strong {
+    color: $color-navy;
+  }
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+}
+
+.sort {
+  min-width: 190px;
+  select {
+    padding-block: 9px;
+    font-size: 0.875rem;
+  }
+}
+
+.view {
+  display: none;
+  padding: 4px;
+  background: $color-gray;
+  border-radius: $radius-pill;
+
+  @include up($bp-md) {
+    display: inline-flex;
+  }
+
+  button {
+    width: 38px;
+    height: 38px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    color: $color-slate;
+    @include focus-ring;
+
+    &[aria-pressed='true'] {
+      background: #fff;
+      color: $color-navy;
+      box-shadow: $shadow-sm;
+    }
+  }
+}

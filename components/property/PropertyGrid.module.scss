@@ -1,0 +1,33 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.grid {
+  display: grid;
+  gap: $space-5;
+  padding: 0;
+  list-style: none;
+  grid-template-columns: 1fr;
+
+  > li {
+    min-width: 0;
+  }
+}
+
+.cols2 {
+  @include up($bp-sm) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.cols3 {
+  @include up($bp-sm) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @include up($bp-lg) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.list {
+  grid-template-columns: 1fr;
+}

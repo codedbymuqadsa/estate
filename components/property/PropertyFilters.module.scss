@@ -1,0 +1,128 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.form {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: $space-3;
+}
+
+.title {
+  font-size: 1.125rem;
+}
+
+.closeBtn {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  &:hover {
+    background: $color-gray;
+  }
+}
+
+.scroll {
+  display: grid;
+  gap: $space-5;
+  padding-block: $space-2 $space-4;
+  overflow-y: auto;
+  flex: 1;
+  min-height: 0;
+  // Space so focus rings are not clipped by overflow
+  padding-inline: 4px;
+  margin-inline: -4px;
+}
+
+.group {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+}
+
+.legend {
+  padding: 0;
+  margin-bottom: 8px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: $color-navy;
+}
+
+.pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $space-3;
+
+  label {
+    font-weight: 500;
+    color: $color-slate;
+  }
+}
+
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.pill {
+  cursor: pointer;
+  padding: 8px 14px;
+  border: 1.5px solid $color-border;
+  border-radius: $radius-pill;
+  background: #fff;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  transition: all $transition-base;
+
+  &:hover {
+    border-color: $color-navy;
+  }
+  &:focus-within {
+    outline: 2px solid $color-blue;
+    outline-offset: 2px;
+  }
+}
+
+.pillOn {
+  background: $color-navy;
+  border-color: $color-navy;
+  color: #fff;
+}
+
+.checks {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 8px;
+}
+
+.check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.875rem;
+  cursor: pointer;
+
+  input {
+    width: 18px;
+    height: 18px;
+    accent-color: $color-blue;
+    flex-shrink: 0;
+  }
+}
+
+.footer {
+  display: flex;
+  gap: $space-2;
+  padding-top: $space-4;
+  border-top: 1px solid $color-border;
+}

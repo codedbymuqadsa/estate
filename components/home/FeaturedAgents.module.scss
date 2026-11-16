@@ -1,0 +1,26 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.section {
+  @include section;
+  background: $color-gray;
+}
+
+.grid {
+  display: grid;
+  gap: $space-4;
+  padding: 0;
+  grid-template-columns: 1fr;
+
+  @include up($bp-sm) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @include up($bp-lg) {
+    grid-template-columns: repeat(4, 1fr);
+    gap: $space-5;
+  }
+
+  > li {
+    min-width: 0;
+  }
+}
